@@ -1,58 +1,166 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/72Bdl6Wn)
+# 🏥 Sistema de Controle de Almoxarifado para Enfermagem
 
-# Almoxarifado - Enfermagem
+Projeto desenvolvido para a disciplina de **Análise e Desenvolvimento de Sistemas**, com o objetivo de simular um sistema de gerenciamento de estoque para um laboratório de enfermagem.
 
-Sistema simples de controle de estoque para o almoxarifado de um laboratório de enfermagem. Permite cadastrar materiais, acompanhar quantidades e datas de validade, dar baixa no estoque (retirada) e excluir itens, tudo persistido em uma API REST (MockAPI).
+O sistema permite o cadastro, consulta, retirada e exclusão de materiais, além de apresentar indicadores importantes sobre o estoque e a validade dos produtos.
 
-## Stack
+---
 
-- HTML5 + Bootstrap 5 (via CDN) para a interface.
-- JavaScript puro (sem frameworks) para a lógica e o consumo da API.
-- [MockAPI](https://mockapi.io) como backend simulado (GET, POST, PUT, DELETE).
-- Jest + jest-environment-jsdom para os testes automatizados (rodados também via GitHub Classroom Autograding).
+## 📋 Funcionalidades
 
-## Estrutura do projeto
+* ✅ Cadastro de novos materiais.
+* ✅ Listagem automática dos itens cadastrados.
+* ✅ Busca de materiais por nome.
+* ✅ Registro de retirada de materiais do estoque.
+* ✅ Validação para impedir retiradas inválidas.
+* ✅ Exclusão de materiais cadastrados.
+* ✅ Dashboard com indicadores do estoque.
+* ✅ Identificação de materiais próximos ao vencimento.
+* ✅ Tratamento de erros durante as operações com a API.
 
+---
+
+## 🚀 Tecnologias utilizadas
+
+* HTML5
+* CSS3
+* Bootstrap 5
+* JavaScript (Vanilla JS)
+* MockAPI (API REST para persistência dos dados)
+* Jest (testes automatizados)
+
+---
+
+## 📁 Estrutura do projeto
+
+```text
+├── index.html
+├── main.js
+├── style.css
+├── package.json
+├── __tests__/
+│   ├── sprint1.test.js
+│   ├── sprint2.test.js
+│   └── sprint3.test.js
+└── README.md
 ```
-index.html        -> Estrutura da página (dashboard, formulário, tabela de estoque)
-main.js           -> Toda a lógica de negócio e integração com a API
-style.css         -> Reservado para estilos extras (opcional, o projeto usa Bootstrap)
-__tests__/        -> Testes automatizados de cada sprint
+
+---
+
+## 💡 Principais recursos
+
+### Cadastro de materiais
+
+Permite adicionar novos itens ao estoque informando:
+
+* Nome do material;
+* Quantidade;
+* Data de validade;
+* Categoria.
+
+Os dados são enviados para a MockAPI utilizando uma requisição **POST**.
+
+---
+
+### Controle de estoque
+
+É possível registrar retiradas de materiais.
+
+Antes da atualização do estoque, o sistema valida se:
+
+* A quantidade é maior que zero;
+* Existe estoque suficiente para realizar a retirada.
+
+Caso a validação seja aprovada, o estoque é atualizado através de uma requisição **PUT**.
+
+---
+
+### Exclusão de materiais
+
+O usuário pode remover um item do estoque após confirmação.
+
+A exclusão é realizada por meio de uma requisição **DELETE** na API.
+
+---
+
+### Dashboard
+
+O sistema apresenta informações rápidas sobre o estoque:
+
+* Total de itens cadastrados;
+* Quantidade de itens com estoque zerado;
+* Quantidade de materiais próximos da data de vencimento.
+
+---
+
+## 🔌 API utilizada
+
+Os dados são armazenados utilizando a plataforma **MockAPI**, permitindo operações completas de CRUD:
+
+* GET
+* POST
+* PUT
+* DELETE
+
+---
+
+## ▶️ Como executar o projeto
+
+1. Clone o repositório:
+
+```bash
+git clone <url-do-repositorio>
 ```
 
-## Funcionalidades por sprint
+2. Entre na pasta do projeto:
 
-### Sprint 1 - Fundação e Inventário
-- Cadastro de materiais (`POST`) com nome, quantidade, validade e categoria.
-- Listagem dos materiais cadastrados (`GET`), com busca por nome.
+```bash
+cd prova-2bi-ads-3sem-erikvictorino-master
+```
 
-### Sprint 2 - Regras de Negócio e Saídas (módulo desta noite)
-- **Retirada de estoque (baixa):** o usuário informa a quantidade a retirar no campo `#input-retirada` e confirma no botão `.btn-baixar` de cada item da lista. O valor é validado e, se aprovado, o estoque é atualizado no MockAPI via `PUT`.
-- **Exclusão de material:** o botão `.btn-excluir` remove o item tanto do MockAPI (`DELETE`) quanto da tela, após confirmação do usuário.
-- **Validação de retirada:** a função `validarRetirada(estoqueAtual, quantidadeRetirada)` centraliza a regra de negócio e retorna:
-  - `false` se a quantidade for menor ou igual a zero (não é permitido retirar valores negativos ou nulos);
-  - `false` se a quantidade for maior que o estoque atual (não é permitido retirar mais do que existe);
-  - `true` caso contrário.
+3. Abra o arquivo `index.html` no navegador.
 
-  Essa função é pura (não depende do DOM), o que permite testá-la de forma isolada e unitária.
+---
 
-### Sprint 3 - Dashboard e Polimento
-- Dashboard com total de itens, itens zerados e itens próximos da validade.
-- Tratamento de erros (`try/catch`) em todas as chamadas à API, com mensagens de feedback na tela.
+## 🧪 Executando os testes
 
-## Como rodar os testes
+Instale as dependências:
 
 ```bash
 npm install
+```
+
+Execute os testes individualmente:
+
+```bash
 npm run test:sprint1
+```
+
+```bash
 npm run test:sprint2
+```
+
+```bash
 npm run test:sprint3
 ```
 
-Os mesmos comandos são executados automaticamente pelo workflow `.github/workflows/classroom.yml` a cada push, via GitHub Classroom Autograding.
+---
 
-## Registro de progresso
+## 🎯 Objetivo acadêmico
 
-- **Sprint 1:** cadastro e listagem de materiais implementados e testados.
-- **Sprint 2 (commit desta noite):** corrigido um merge mal resolvido em `main.js` que havia deixado marcadores de conflito (`<<<<<<<`, `=======`, `>>>>>>>`) no arquivo, quebrando a sintaxe e fazendo os testes do Sprint 2 falharem. Após a correção, o módulo de retirada (`baixarMaterial`), a função de validação (`validarRetirada`) e o módulo de exclusão (`excluirMaterial`) ficaram ativos e todos os testes (`sprint1`, `sprint2`, `sprint3`) passam.
-- **Sprint 3:** dashboard e tratamento de erros implementados e testados.
+Este projeto foi desenvolvido para colocar em prática conceitos de:
+
+* Manipulação do DOM;
+* Consumo de APIs REST;
+* Programação assíncrona com `fetch` e `async/await`;
+* Validação de regras de negócio;
+* Testes automatizados com Jest;
+* Organização de código em JavaScript.
+
+---
+
+## 👨‍💻 Autor
+
+**Erik Victorino**
+
+Estudante de Análise e Desenvolvimento de Sistemas, desenvolvendo projetos voltados para aprimorar conhecimentos em desenvolvimento web e construção de aplicações utilizando JavaScript e integração com APIs.
