@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Almoxarifado - Enfermagem</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"/>
+  <style>
+    body { background: #f0f4f8; }
+    .card { border-radius: 12px; }
+    .badge-validade { font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <h2 class="mb-4 fw-bold text-primary">🏥 Almoxarifado - Enfermagem</h2>
+
+    <!-- Dashboard -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm text-center p-3">
+          <div class="text-muted small">Total de Itens</div>
+          <div class="fs-3 fw-bold text-primary" id="total-itens">0</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm text-center p-3">
+          <div class="text-muted small">Itens Zerados</div>
+          <div class="fs-3 fw-bold text-danger" id="total-zerados">0</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm text-center p-3">
+          <div class="text-muted small">Próximos da Validade</div>
+          <div class="fs-3 fw-bold text-warning" id="total-vencendo">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulário de Cadastro -->
+    <div class="card shadow-sm mb-4 p-4">
+      <h5 class="fw-bold mb-3">Cadastrar Material</h5>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" id="input-nome" class="form-control" placeholder="Nome do material" />
+        </div>
+        <div class="col-md-2">
+          <input type="number" id="input-quantidade" class="form-control" placeholder="Qtd." min="1" />
+        </div>
+        <div class="col-md-3">
+          <input type="date" id="input-validade" class="form-control" />
+        </div>
+        <div class="col-md-3">
+          <select id="input-categoria" class="form-select">
+            <option value="consumo">Consumo (descartável)</option>
+            <option value="permanente">Permanente (equipamento)</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button id="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
+        </div>
+      </div>
+      <div id="msg-cadastro" class="mt-2"></div>
+    </div>
+
+    <!-- Retirada -->
+    <div class="card shadow-sm mb-4 p-4">
+      <h5 class="fw-bold mb-3">Registrar Retirada</h5>
+      <div class="row g-3 align-items-end">
+        <div class="col-md-5">
+          <input type="text" id="input-busca" class="form-control" placeholder="Buscar material..." />
+        </div>
+        <div class="col-md-3">
+          <input type="number" id="input-retirada" class="form-control" placeholder="Qtd. a retirar" min="1" />
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="input-solicitante" class="form-control" placeholder="Nome do instrutor" />
+        </div>
+      </div>
+      <div id="msg-retirada" class="mt-2"></div>
+    </div>
+
+    <!-- Lista de Materiais -->
+    <div class="card shadow-sm p-4">
+      <h5 class="fw-bold mb-3">Estoque</h5>
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Material</th>
+            <th>Categoria</th>
+            <th>Quantidade</th>
+            <th>Validade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="lista-materiais"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
