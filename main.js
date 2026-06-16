@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const API_URL = 'https://683f3a4a1cd60dca33dcf5cb.mockapi.io/materiais';
 
@@ -165,3 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
     inputBusca.addEventListener('input', carregarMateriais);
   }
 });
+=======
+// Arquivo para código javascript
+>>>>>>> 0864179ce5dce4258c5c095d81cad036a683458c
