@@ -1,4 +1,4 @@
-const API_URL = 'https://683f3a4a1cd60dca33dcf5cb.mockapi.io/materiais';
+const API_URL = 'https://6a31cfc57bc5e1c612662e8c.mockapi.io/:endpoint';
 
 function validarRetirada(estoqueAtual, quantidade) {
   if (quantidade <= 0) return false;
