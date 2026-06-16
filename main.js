@@ -1,4 +1,4 @@
-const API_URL = 'https://6a31cfc57bc5e1c612662e8c.mockapi.io/:endpoint';
+const API_URL = 'https://6a31cfc57bc5e1c612662e8c.mockapi.io/Almoxarifado';
 
 function validarRetirada(estoqueAtual, quantidade) {
   if (quantidade <= 0) return false;
