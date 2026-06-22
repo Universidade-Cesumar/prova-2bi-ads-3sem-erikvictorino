@@ -123,7 +123,7 @@ function renderizarLista(materiais) {
   }
 
   lista.innerHTML = filtrados.map(m => `
-    <tr>
+    <tr class="${m.quantidade < 10 ? 'estoque-critico' : ''}">
       <td>${m.nome}</td>
       <td><span class="badge bg-secondary">${m.categoria || 'consumo'}</span></td>
       <td>
