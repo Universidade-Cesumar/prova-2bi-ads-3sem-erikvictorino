@@ -1,0 +1,9 @@
+/* Estoque crítico: menos de 10 unidades */
+tr.estoque-critico {
+  background-color: #fff3cd !important;
+  border-left: 4px solid #ffc107;
+}
+
+tr.estoque-critico td:first-child::before {
+  content: '⚠️ ';
+}
