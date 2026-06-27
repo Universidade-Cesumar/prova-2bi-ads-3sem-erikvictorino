@@ -1,7 +1,6 @@
 # 🏥 Sistema de Controle de Almoxarifado para Enfermagem
 
 > **🔗 Deploy:** [Clique aqui para acessar o projeto online](https://SEU-USUARIO.github.io/SEU-REPOSITORIO)
-> *(substitua o link acima pelo URL do seu GitHub Pages ou Vercel após o deploy)*
 
 Projeto desenvolvido para a disciplina de **Análise e Desenvolvimento de Sistemas**, com o objetivo de simular um sistema de gerenciamento de estoque para um laboratório de enfermagem.
 
